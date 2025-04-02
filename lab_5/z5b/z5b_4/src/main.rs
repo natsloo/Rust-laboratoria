@@ -12,6 +12,10 @@ fn wartosc_cyfry_rzymskiej(c: char) -> Result<u16, String> {
 fn rzymskie(napis: &str) -> Result<u128, String> {
     let znaki:Vec<char> = napis.chars().rev().collect();
 
+    if znaki.len() == 0 {
+        return Err("Pusty napis!".to_string())
+    }
+
     let mut poprzedni = 0;
     let mut wynik = 0;
     let mut licznik = 1;
@@ -53,4 +57,19 @@ fn main() {
         Ok(l) => println!("{}", l),
         Err(e) => println!("{}", e),
     }
+
+    println!("{:?}", rzymskie("III"));
+    println!("{:?}", rzymskie("IX"));
+    println!("{:?}", rzymskie("XIX"));
+    println!("{:?}", rzymskie("MCMX"));
+    println!("{:?}", rzymskie("IV"));
+
+    println!("{:?}", rzymskie("VV"));
+    println!("{:?}", rzymskie("XXXX"));
+    println!("{:?}", rzymskie("IIII"));
+    println!("{:?}", rzymskie("DDD"));
+    println!("{:?}", rzymskie("IIID"));
+    println!("{:?}", rzymskie("IM"));
+    println!("{:?}", rzymskie(""));
+    println!("{:?}", rzymskie("sdfaf"));
 }

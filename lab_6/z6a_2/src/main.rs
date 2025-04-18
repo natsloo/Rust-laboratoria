@@ -27,8 +27,7 @@ fn has_double_letters(s: &str) -> bool {
 }
 fn doubled_letter(test_strings: Vec<&str>) -> Vec<String> {
     let result = test_strings
-        .into_iter().filter(|x| has_double_letters(x))
-        .map(|x| x.to_string()).collect();
+        .into_iter().filter(|x| has_double_letters(x)).map(|x| x.to_string()).collect();
     result
 }
 
